@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hai Amel 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fce4ec, #f8bbd0);
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .login-box {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      animation: pop 1s ease-out;
+      position: relative;
+      max-width: 350px;
+    }
+
+    .login-box h2 {
+      color: #ec407a;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .login-box button {
+      padding: 10px 20px;
+      background: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 5px;
+    }
+
+    .login-box button:hover {
+      background: #d81b60;
+    }
+
+    .romantic-message, #quote {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #typing {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0px); }
+    }
+
+    @keyframes fadeInDown {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0px); opacity: 1; }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .love {
+      position: absolute;
+      font-size: 25px;
+      color: #ff4081;
+      animation: float 4s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Hai Amel 💌</h2>
+
+    <button onclick="showLoveNote()">📜 Buka Surat Cinta</button>
+    <button onclick="showQuote()">💬 Kutipan Cinta</button>
+
+    <div id="quote"></div>
+    <div id="typing"></div>
+
+    <div class="romantic-message">
+      💬 "Cinta itu sederhana, seperti halaman ini... khusus aku buat hanya untuk kamu, Amel 💘"<br>
+      💬 "Kamu bukan cuma pengunjung, tapi pemilik hati yang paling dalam."
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Love floating
+    function createHearts() {
+      const heart = document.createElement("div");
+      heart.classList.add("love");
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHearts, 500);
+
+    // Typing effect
+    const typingText = "Kamu makin cantik tiap hari, Amel 💕";
+    let i = 0;
+    function typeEffect() {
+      if (i < typingText.length) {
+        document.getElementById("typing").innerHTML += typingText.charAt(i);
+        i++;
+        setTimeout(typeEffect, 100);
+      }
+    }
+    typeEffect();
+
+    // Quotes
+    const quotes = [
+      "Aku jatuh cinta padamu setiap hari, Amel 💗",
+      "Kamu adalah alasan aku tersenyum setiap hari 💘",
+      "Kalau cinta itu lagu, kamu adalah nadanya 🎵",
+      "Kalau hidup itu buku, kamu adalah bab terindahnya 📖",
+      "Bersamamu, semuanya jadi lebih indah 🌈"
+    ];
+
+    function showQuote() {
+      const q = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").innerText = q;
+    }
+
+    // Surat cinta
+    function showLoveNote() {
+      alert("Untuk Amel yang paling aku sayang 💖\n\nHari-hariku lebih berarti sejak kamu hadir. Senyumanmu bikin dunia terasa damai. Terima kasih sudah jadi bagian dari hidupku 🌸");
+    }
+  </script>
+</body>
+</html>
